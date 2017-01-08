@@ -1,9 +1,12 @@
 # This module shows most common and possible ways to define singleton method
 # in Ruby programming language.
-# As a small reminder - singleton method is just a method defined only for
-# particular object.
+#
+# Singleton method is method defined only for particular object.
+# From technical point of view it is an instance method defined on
+# the object singleton class.
+#
 # As a tip to understand from my little experience with metaprogramming -
-# It's all about understanding of ruby 'self' and coresponding scope.
+# It's all about understanding 'self' and coresponding lexical scope.
 #
 # SingletonMethods.singleton_methods
 #  => [:from_self, :from_singleton_class, :from_constant,
