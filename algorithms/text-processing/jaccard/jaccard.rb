@@ -27,25 +27,14 @@ module Jaccard
       # strings will be reproduced in form of arrays. When iteration is
       # finished only thing to do is to produce intersection and union
       # basing on both of collections.
-      origin_chars = []
-      target_chars = []
 
-      i = 0
+      o_codepoints = origin.codepoints
+      t_codepoints = target.codepoints
 
-      while true
-        target_char = target[i] and target_chars[i] = target_char.ord
-        origin_char = origin[i] and origin_chars[i] = origin_char.ord
+      intersection = o_codepoints & t_codepoints
+      union        = o_codepoints | t_codepoints
 
-        target_char || origin_char || break
-
-        i += 1
-      end
-
-      intersection = target_chars & origin_chars
-      union        = target_chars | origin_chars
-
-
-      (intersection.length / union.length.to_f).round(5)
+      intersection.length / Float(union.length).round(5)
     end
 
     def self.distance(origin, target)
