@@ -21,24 +21,37 @@ module Jaccard
     #   Jaccard::Words.distance 'apple', 'applet'
     #   => 0.2
 
-    def self.coefficient(origin, target)
+    def self.coefficient(origin, target, round: DEFAULT_ROUND)
       # Variables origin_chars, and target_chars refer to temporary containers
       # for unique characters from both words. Iteration occures until both
       # strings will be reproduced in form of arrays. When iteration is
       # finished only thing to do is to produce intersection and union
       # basing on both of collections.
 
-      o_codepoints = origin.codepoints
-      t_codepoints = target.codepoints
+      _round_by_value(round) do
+        o_codepoints = origin.codepoints
+        t_codepoints = target.codepoints
 
-      intersection = o_codepoints & t_codepoints
-      union        = o_codepoints | t_codepoints
+        intersection = o_codepoints & t_codepoints
+        union        = o_codepoints | t_codepoints
 
-      intersection.length / Float(union.length).round(5)
+        intersection.length / Float(union.length)
+      end
     end
 
-    def self.distance(origin, target)
-      (1 - coefficient(origin, target)).round(5)
+    def self.distance(origin, target, round: DEFAULT_ROUND)
+      _round_by_value(round) do
+        1 - coefficient(origin, target, round: round)
+      end
+    end
+
+    private
+
+    def self._round_by_value(value)
+      return yield unless value
+      yield.round Integer value
+    rescue TypeError
+      yield.round DEFAULT_ROUND
     end
   end
 end
