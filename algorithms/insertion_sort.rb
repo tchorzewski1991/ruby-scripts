@@ -5,9 +5,7 @@ class InsertionSort
       i = 1
 
       while item = array[i]
-        enum = sorted.each_index
-
-        enum.each do |i|
+        sorted.length.times do |i|
           next if sorted[i] <= item
           temp = sorted[i..-1]
           sorted[i] = item
