@@ -6,6 +6,7 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 - Bubble sort
 - Selection sort
 - Insertion sort
+- Linear search
 
 ### Data Structures
 - Linked List (with basic actions)
