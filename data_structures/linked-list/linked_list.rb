@@ -1,4 +1,5 @@
 class List
+  include Enumerable
   attr_accessor :head
 
   def insert(data)
@@ -11,30 +12,28 @@ class List
     search(data, node.next_node)
   end
 
-  def delete(node)
-    if node == head
-      tap { self.head = head.next_node }
-    else
-      successor = node.next_node
-      predecessor = head
-
-      loop do
-        break if predecessor.next_node == node
-        predecessor = predecessor.next_node
-      end
-
-      tap { predecessor.next_node = successor }
+  def delete(doomed)
+    if doomed == head
+      return tap { self.head = head.next_node }
     end
+
+    successor = doomed.next_node
+    predecessor = find { |node| doomed == node.next_node }
+
+    tap { predecessor.next_node = successor }
   end
 
   def tail
-    tail = head
+    find { |node| node.next_node.nil? }
+  end
 
-    while node = tail && tail.next_node
-      tail = node
+  def each
+    node = head
+    while node
+      yield(node)
+      node = node.next_node
+      break if node.nil?
     end
-
-    tail
   end
 
   class Node
