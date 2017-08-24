@@ -11,6 +11,7 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 
 ### Data Structures
 - Linked List (with basic actions)
+- Circular List (with basic actions)
 
 ### Others
 - Occurence counting (differen approaches)
