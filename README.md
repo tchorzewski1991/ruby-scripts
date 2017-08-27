@@ -8,6 +8,7 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 - Insertion sort
 - Linear search
 - Binary search
+- Recursive/Iterative fibonacci
 
 ### Data Structures
 - Linked List (with basic actions)
