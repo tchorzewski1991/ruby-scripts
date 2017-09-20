@@ -10,6 +10,7 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 - Binary search
 - Recursive/Iterative fibonacci
 - Hamming distance
+- Levenshtein distance
 
 ### Data Structures
 - Linked List (with basic actions)
