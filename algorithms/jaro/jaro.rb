@@ -5,7 +5,7 @@ class Jaro
     @restriction = ([@source.length, @target.length].max / 2).floor - 1
   end
 
-  def compute
+  def distance
     # Two characters from both strings respectively, are considered
     # matching only if they are the same and not farther than
     # (max(|s|, |t|) / 2)).floor - 1. By considering 'not farther than'
