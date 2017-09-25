@@ -12,6 +12,8 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 - Hamming distance
 - Levenshtein distance [wiki](https://en.wikipedia.org/wiki/Levenshtein_distance)
 - Jaro distance [wiki](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
+- Jaro-Winkler distance
+[wiki](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
 
 ### Data Structures
 - Linked List (with basic actions)
