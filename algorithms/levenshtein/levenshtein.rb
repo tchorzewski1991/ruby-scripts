@@ -9,16 +9,16 @@ class Levenshtein
 
     return 0 if j.zero? || k.zero?
 
-    matrix = Array.new(j + 1) { Array.new(k + 1) { 0 } }
+    matrix = Array.new(k + 1) { Array.new(j + 1) { 0 } }
 
     x, y = 0, 0
 
-    while x <= j
+    while x <= k
       matrix[x][0] = x
       x += 1
     end
 
-    while y <= k
+    while y <= j
       matrix[0][y] = y
       y += 1
     end
@@ -27,14 +27,14 @@ class Levenshtein
     while y <= k
       x = 1
       while x <= j
-        cost = @s[x] == @t[y] ? 0 : 1
+        cost = @s[x - 1] == @t[y - 1] ? 0 : 1
 
-        matrix[x][y] = begin
+        matrix[y][x] = begin
           r = []
 
-          r << matrix[x - 1][y] + 1
-          r << matrix[x][y - 1] + 1
-          r << matrix[x - 1][y - 1] + cost
+          r << matrix[y - 1][x] + 1
+          r << matrix[y][x - 1] + 1
+          r << matrix[y - 1][x - 1] + cost
 
           min, i = r.shift, 0
 
@@ -52,6 +52,6 @@ class Levenshtein
       y += 1
     end
 
-    matrix[j][k]
+    matrix[k][j]
   end
 end
