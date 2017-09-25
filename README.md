@@ -11,6 +11,7 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 - Recursive/Iterative fibonacci
 - Hamming distance
 - Levenshtein distance
+- Jaro distance
 
 ### Data Structures
 - Linked List (with basic actions)
