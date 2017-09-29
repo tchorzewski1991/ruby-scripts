@@ -44,7 +44,7 @@ class KnuthMorrisPratt
         else
           m += i
 
-          # Least but not least there's one more to consider. Within each of
+          # Least but not last there's one more to consider. Within each of
           # temporary submatches (like for example: 'ABCDAB') the same starting
           # sequence could be encountered. It needs to be considered, when
           # setting up new value for our main 'm' variable. In the case above
