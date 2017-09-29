@@ -68,15 +68,15 @@ class Jaro
       m = matches[i]
 
       j = 0
-      while j < shorter_length
-        m == shorter[j] && _shorter[j] = m
-        j += 1
-      end
+      while true
+        s, l = shorter[j], longer[j]
 
-      k = 0
-      while k < longer_length
-        m == longer[k] && _longer[k] = m
-        k += 1
+        s && m == s && _shorter[j] = m
+        l && l == m && _longer[j] = m
+
+        !s && !l && break
+
+        j += 1
       end
 
       i += 1
