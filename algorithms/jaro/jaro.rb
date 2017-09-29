@@ -24,6 +24,14 @@ class Jaro
     match_in_window = 0
     match_out_of_position = 0
 
+    # To find number of matches we need to start iteration from shorter
+    # string. For each specific character in our source we iterate through all
+    # target characters. Appropriate  'match' will happen when target character
+    # will be found within specified window range. We can divide that process
+    # into two separate subprocesses. For performance optimalization - direct
+    # match can jump to next iteration without an effort. This refers to first
+    # subprocess. Second one is nothing more than finding matches within
+    # window. Range boundaries are set for each iteration.
     i = 0
     while i < shorter_length
       s = shorter[i]
