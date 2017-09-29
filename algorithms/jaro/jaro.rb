@@ -90,5 +90,13 @@ class Jaro
       _shorter[i] != _longer[i] && (match_out_of_position += 1)
       i += 1
     end
+
+    t = match_out_of_position / 2
+
+    x = match / shorter_length.to_f
+    y = match / longer_length.to_f
+    z = (match - t) / match.to_f
+
+    (1/3r * (x + y + z)).round(5)
   end
 end
