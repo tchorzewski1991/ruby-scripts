@@ -23,4 +23,33 @@ class Jaro
     match = 0
     match_in_window = 0
     match_out_of_position = 0
+
+    i = 0
+    while i < shorter_length
+      s = shorter[i]
+
+      next(
+        match += 1
+        matches << s
+        i += 1
+      ) if s == longer[i]
+
+      backward = i - window < 0 ? 0 : i - window
+      forward = longer[i + window] ? i + window : longer_length - 1
+
+      while backward <= forward
+        if s == longer[backward]
+          break(
+            match_in_window += 1
+            matches << s
+          )
+        end
+
+        backward += 1
+      end
+
+      i += 1
+    end
+
+    return 0 if (match += match_in_window) == 0
 end
