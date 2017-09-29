@@ -5,5 +5,13 @@ class Jaro
   end
 
   def distance
-  end
+    window = @window
+
+    shorter, longer = @source, @target
+    shorter_length, longer_length = shorter.length, longer.length
+
+    matches = []
+    match = 0
+    match_in_window = 0
+    match_out_of_position = 0
 end
