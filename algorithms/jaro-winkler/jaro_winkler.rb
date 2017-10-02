@@ -15,11 +15,9 @@ class JaroWinkler < Jaro
     value: 0.7
   }
 
-  def initialize(source, target, opts = {})
-    super(source, target)
-  end
-
   def distance(opts = {})
+    s, t = @source, @target
+
     # 'l' is the length of common prefix at the start of the string up to
     # a maximum of four characters.
     l = 0
