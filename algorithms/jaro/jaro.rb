@@ -60,4 +60,35 @@ class Jaro
     end
 
     return 0 if (match += match_in_window) == 0
+
+    _shorter, _longer = [], []
+
+    i = 0
+    while i < matches.length
+      m = matches[i]
+
+      j = 0
+      while j < shorter_length
+        m == shorter[j] && _shorter[j] = m
+        j += 1
+      end
+
+      k = 0
+      while k < longer_length
+        m == longer[k] && _longer[k] = m
+        k += 1
+      end
+
+      i += 1
+    end
+
+    _shorter.compact!
+    _longer.compact!
+
+    i = 0
+    while i < _shorter.length
+      _shorter[i] != _longer[i] && (match_out_of_position += 1)
+      i += 1
+    end
+  end
 end
