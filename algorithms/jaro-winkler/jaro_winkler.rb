@@ -17,8 +17,6 @@ class JaroWinkler < Jaro
 
   def initialize(source, target, opts = {})
     super(source, target)
-    @scaling_factor = set_scaling_factor(opts)
-    @boost_threshold = set_boost_threshold(opts)
   end
 
   def distance(opts = {})
@@ -38,19 +36,5 @@ class JaroWinkler < Jaro
     sf = scaling_factor
 
     bt && (j > bt && (j + l * sf * (1 - j)) || j) || (j + l * sf * (1 - j))
-  end
-
-  private
-  attr_reader :scaling_factor, :boost_threshold
-
-  def set_scaling_factor(opts)
-    opts.dig(:scaling_factor) || DEFAULT_SCALING_FACTOR
-  end
-
-  def set_boost_threshold(opts)
-    bt = opts.dig(:boost_threshold)
-    bt = bt.is_a?(Hash) ? bt.dig(:enable) : false
-    bt = bt.respond_to?(:&) ? (bt & true) : DEFAULT_BOOST_THRESHOLD[:enable]
-    bt &&= opts.dig(:boost_threshold, :value) || DEFAULT_BOOST_THRESHOLD[:value]
   end
 end
