@@ -9,13 +9,13 @@ class Jaro
     # matching only if they are the same and not farther than
     # (max(|s|, |t|) / 2)).floor - 1. By considering 'not farther than'
     # we mean difference in index positions between two characters.
-    # Variable window refers to 'range' described above.
+    # Variable window refers to 'range' defined above.
     # Variable match_in_window is self describing.
     window = @window
 
     # It's important to know that we always need to start iteration
-    # from shorter to longer text. Those two are encountered during
-    # initialization.
+    # from shorter to longer string. Those two are encountered and
+    # adjusted during initialization.
     shorter, longer = @source, @target
     shorter_length, longer_length = shorter.length, longer.length
 
@@ -26,7 +26,7 @@ class Jaro
 
     # To find number of matches we need to start iteration from shorter
     # string. For each specific character in our source we iterate through all
-    # target characters. Appropriate  'match' will happen when target character
+    # target characters. Appropriate 'match' will happen when target character
     # will be found within specified window range. We can divide that process
     # into two separate subprocesses. For performance optimalization - direct
     # match can jump to next iteration without an effort. This refers to first
@@ -61,6 +61,31 @@ class Jaro
 
     return 0 if (match += match_in_window) == 0
 
+    # After successful matching we need to count all transpositions.
+    # Transposition refers to process of finding a character from first
+    # string, laying within different position in second string. From
+    # conceptual point of view it sounds really easy, but implementation
+    # is a little bit harder. Transposition will be better explained with
+    # examples. There are three major problems.
+
+    # Consider those three pairs of examples:
+
+    # CRATE - TRACE   In this example everything looks easy (two characters
+    #                 changed their positions), but there is a twist - there
+    #                 is no transpositions at all, as those characters are
+    #                 too far from each other. They are not considered as a match.
+    #                 Current match is RAE - RAE, so there is no transposition.
+
+    # MARTHA - MARHTA In this example 'issue' refers to performance gap and
+    #                 number of potential transpositions. There are two matches
+    #                 in different position, but only one transposition!
+
+    # DwAyNE - DuANE  In this example, problem lays in different lengths.
+    #                 In standard approach NE from DwAyNE and  NE from DuANE lie
+    #                 on different positions. Problem is that, these are no truly
+    #                 transpositions. If we consider only matching characters
+    #                 (DANE - DANE) there is no transposition at all, so order
+    #                 matters.
     _shorter, _longer = [], []
 
     i = 0
