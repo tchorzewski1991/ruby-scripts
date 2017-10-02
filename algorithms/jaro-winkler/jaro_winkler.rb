@@ -10,13 +10,22 @@ class JaroWinkler < Jaro
   # In some implementations of Jaro–Winkler, the prefix bonus lp(1 − dj) is
   # only added when the compared strings have a Jaro distance above a set
   # "boost threshold". The boost threshold in Winkler's implementation was 0.7.
-  DEFAULT_BOOST_THRESHOLD = {
-    enable: false,
-    value: 0.7
-  }
+  DEFAULT_BOOST_THRESHOLD = 0.7
 
   def distance(opts = {})
     s, t = @source, @target
+
+    opts = {
+      scaling_factor: DEFAULT_SCALING_FACTOR,
+      boost_threshold: {
+        enable: false,
+        value: DEFAULT_BOOST_THRESHOLD
+      }
+    }.merge(opts)
+
+    sf = opts.dig(:scaling_factor)
+    bt = opts.dig(:boost_threshold, :enable) & true
+    bt &&= opts.dig(:boost_threshold, :value)
 
     # 'l' is the length of common prefix at the start of the string up to
     # a maximum of four characters.
