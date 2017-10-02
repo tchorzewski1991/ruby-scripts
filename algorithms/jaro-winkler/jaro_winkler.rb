@@ -38,10 +38,11 @@ class JaroWinkler < Jaro
       i += 1
     end
 
-    j = super()
-    bt = boost_threshold
-    sf = scaling_factor
+    distance = super()
 
-    bt && (j > bt && (j + l * sf * (1 - j)) || j) || (j + l * sf * (1 - j))
+    prefix = l * sf * (1 - distance)
+
+    distance = bt ?
+    (distance > bt && (distance + prefix) || distance) : (distance + prefix)
   end
 end
