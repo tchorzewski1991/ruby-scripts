@@ -27,8 +27,8 @@ class JaroWinkler < Jaro
     bt = opts.dig(:boost_threshold, :enable) & true
     bt &&= opts.dig(:boost_threshold, :value)
 
-    # 'l' is the length of common prefix at the start of the string up to
-    # a maximum of four characters.
+    # Variable 'l' refers to the length of common prefix at the start of
+    # the string, up to a maximum of four characters.
     l = 0
 
     i = 0
@@ -38,8 +38,13 @@ class JaroWinkler < Jaro
       i += 1
     end
 
+    # Variable 'distance' refers to pure Jaro distance.
     distance = super()
 
+    # Variable 'prefix' refers to value of Winkler's addition to the Jaro
+    # distance. In most cases this is just small profit which gives more
+    # favourable ratings to strings that match from the beginning for a set
+    # prefix length 'l'.
     prefix = l * sf * (1 - distance)
 
     distance = bt ?
