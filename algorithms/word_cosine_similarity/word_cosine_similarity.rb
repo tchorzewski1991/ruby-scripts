@@ -1,6 +1,25 @@
 class WordCosineSimilarity
   class << self
     def compute(s, t)
+      # Cosine similarity is literally the angular difference between two
+      # vectors. Algorithm itself refers to highly preferable solution for
+      # measuring similarity of two texts. Cosine similarity is most commonly
+      # used in high-dimensional positive spaces, so it fits perfectly into
+      # context of information retrival or text mining.
+
+      # Variables s_occurences, t_occurences refers to vector representation of
+      # given words. A virtue of using cosine similarity is clearly that it
+      # converts a question that is beyond human ability to visualise to one
+      # that can be. Simple example will be the best proof.
+      # Lets examine words 'bob', and 'rob'. Their vector representation could
+      # be considered as two vectors of fixed size. What is beyond human ability
+      # to understand is dimensionality. The 'bob' example is quite straight
+      # forward. Every letter refers to one additional dimension, so it's
+      # summerized as 3-dimensions vector of values (2, 1, 0).
+      # Little bit more frustrating to visualize will be word 'cosine'. With
+      # the prevoius convention it's 6-dimenisional vactor with corresponding
+      # values (1, 1, 1, 1, 1, 1).
+
       s_occurences = Hash.new { |hash, key| hash[key] = 0 }
       t_occurences = Hash.new { |hash, key| hash[key] = 0 }
 
