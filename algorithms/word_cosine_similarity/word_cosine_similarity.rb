@@ -23,6 +23,12 @@ class WordCosineSimilarity
       s_occurences = Hash.new { |hash, key| hash[key] = 0 }
       t_occurences = Hash.new { |hash, key| hash[key] = 0 }
 
+      # First part of the algorithm is fairly simple. We want to populate
+      # previously declared hashes (kind of containers) with number of
+      # occurences for the each of uniq characters. One interesting part is
+      # to use as a hash key integer representation of string. As there could
+      # be only one representation of the number in ruby - this is big
+      # optimalization improvement.
       s_length = s.length
       t_length = t.length
 
