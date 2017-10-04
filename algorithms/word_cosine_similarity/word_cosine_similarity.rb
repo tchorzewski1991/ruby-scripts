@@ -48,6 +48,13 @@ class WordCosineSimilarity
         j += 1
       end
 
+      # Second part is a little bit of math. To compute our dot product we can
+      # pay attention at only one set of uniq characters. Therefore [b,o] is
+      # enough. It's happening because of multiplication with zeros issue.
+      # Lets examine one more time 'bob' and 'rob' example.
+      # Dot product: (2,1,0) dot (1,1,1) = 2 * 1 + 1 * 1 + 1 * 0.
+      # Last computation could be explained as the ability to use only one set
+      # of uniq characters.
       numerator = 0
 
       k = 0
