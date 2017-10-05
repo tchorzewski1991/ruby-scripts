@@ -17,6 +17,8 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 [wiki](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
 - Knuth-Morris-Pratt string searching
 [wiki](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
+- Word Cosine Similarity
+[wiki](https://en.wikipedia.org/wiki/Cosine_similarity)
 
 ### Data Structures
 - Linked List (with basic actions)
