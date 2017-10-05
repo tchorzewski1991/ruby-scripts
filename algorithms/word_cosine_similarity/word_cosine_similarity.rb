@@ -1,3 +1,6 @@
+require 'benchmark/ips'
+require 'string/similarity'
+
 class WordCosineSimilarity
   class << self
     def compute(s, t)
@@ -90,3 +93,29 @@ class WordCosineSimilarity
     end
   end
 end
+
+Benchmark.ips do |x|
+  # There aren't any limits in terms of usage ruby features.
+  x.report 'Existing ruby implementation' do
+    String::Similarity.cosine 'bob', 'rob'
+  end
+
+  # Just like always in that repo - implementation with minimum
+  # effort of ruby built-in features. I thing benchmark results are
+  # quite satisfying
+  x.report 'Limited ruby implementation' do
+    WordCosineSimilarity.compute('bob', 'rob')
+  end
+
+  x.compare!
+end
+
+# Existing ruby implementation    14.876k i/100ms
+# Limited ruby implementation     10.720k i/100ms
+# Calculating -------------------------------------
+# Existing ruby implementation   164.069k (± 6.6%) i/s - 818.180k in 5.010700s
+# Limited ruby implementation    118.625k (± 5.6%) i/s - 600.320k in 5.077530s
+#
+# Comparison:
+# Existing ruby implementation:  164068.8 i/s
+# Limited ruby implementation:   118624.6 i/s - 1.38x slower
