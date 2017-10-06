@@ -24,5 +24,8 @@ Not every subdirectory contain scripts with minimum usage of ruby API.
 - Linked List (with basic actions)
 - Circular List (with basic actions)
 
+### Performance
+- Array#join vs other less common approaches
+
 ### Others
 - Occurence counting (differen approaches)
