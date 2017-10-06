@@ -17,10 +17,10 @@ class WordCosineSimilarity
       # Lets examine words 'bob', and 'rob'. Their vector representation could
       # be considered as two vectors of fixed size. What is beyond human ability
       # to understand is dimensionality. The 'bob' example is quite straight
-      # forward. Every letter refers to one additional dimension, so it's
+      # forward. Every letter refers to one new dimension, so it's
       # summerized as 3-dimensions vector of values (2, 1, 0).
-      # Little bit more frustrating to visualize will be word 'cosine'. With
-      # the prevoius convention it's 6-dimenisional vactor with corresponding
+      # Little bit more frustrating to visualize could be word 'cosine'. With
+      # the prevoius convention it's 6-dimenisional vector with corresponding
       # values (1, 1, 1, 1, 1, 1).
 
       s_occurences = Hash.new { |hash, key| hash[key] = 0 }
