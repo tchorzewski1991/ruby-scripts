@@ -9,8 +9,8 @@ class Fibonacci
     end
 
     def memoized_fib(n)
-      @_memo ||= { 0 => 0, 1 => 1 }
-      @_memo[n] || @_memo[n] = memoized_fib(n - 2) + memoized_fib(n - 1)
+      @memo ||= { 0 => 0, 1 => 1 }
+      @memo[n] || @memo[n] = memoized_fib(n - 2) + memoized_fib(n - 1)
     end
 
     def iterative_fib(n)
@@ -29,6 +29,12 @@ class Fibonacci
         memo
       end.last
     end
+
+    def hash_fib(n)
+      fib = Hash.new { |h, n| h[n] = fib[n - 2] + fib[n - 1] }
+      fib.update(0 => 0, 1 => 1)
+      fib[n]
+    end
   end
 end
 
@@ -38,6 +44,7 @@ Benchmark.ips do |x|
   x.report('memoized - recursive') { Fibonacci.memoized_fib(40) }
   x.report('pure - iterative    ') { Fibonacci.iterative_fib(40) }
   x.report('fold - iterative    ') { Fibonacci.folding_fib(40) }
+  x.report('hash - memoized     ') { Fibonacci.hash_fib(40) }
   x.compare!
 end
 
@@ -46,9 +53,11 @@ end
 # memoized - recursive      4.199M (± 8.8%) i/s -     20.828M in   5.002035s
 # pure - iterative        203.194k (±10.4%) i/s -      1.006M in   5.009933s
 # fold - iterative        134.339k (±10.6%) i/s -    671.577k in   5.062760s
-#
+# hash - memoized          56.952k (± 9.4%) i/s -    283.095k in   5.015595s
+
 # Comparison:
 # memoized - recursive:  4198818.0 i/s
 # pure - iterative    :   203193.9 i/s - 20.66x  slower
 # fold - iterative    :   134339.1 i/s - 31.26x  slower
+# hash - memoized     :    56951.7 i/s - 63.65x  slower
 # pure - recursive    :        0.0 i/s - 93997569.32x  slower
