@@ -13,11 +13,11 @@ class InsertionSort
       # variable c(candidate) refers to each consecutive element from given
       # array.
       i = 0
-      while s = sorted[i]
-        c = array[0]
-
+      while i < sorted.length
+        c = array[0] or break
         # Loop will be stopped when there is no more elements in given array
-        break unless c
+
+        s = sorted[i]
 
         # Positive branch of conditional statement below will be responsible
         # for adding elements to the end of sorted array, while negative branch
@@ -31,8 +31,9 @@ class InsertionSort
           array = array[1..-1]
         else
           j = 0
-          while sorted[j]
-            next(j += 1) if sorted[j] < c
+          while j < sorted.length
+            s = sorted[j]
+            next(j += 1) if s < c
             temp = sorted[j..-1]
             sorted[j] = c
             sorted[j+1..-1] = temp
