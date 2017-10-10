@@ -32,4 +32,5 @@ I decide to focus on algorithms implementation itself, rather than using built-i
 - Array#join vs other less common approaches
 
 ### Others
-- Occurence counting (differen approaches)
+- Occurrence counting (different approaches)
+- Considerations on ruby singleton classes
