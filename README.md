@@ -1,7 +1,11 @@
 # ruby-scripts
 The main point of this repo is to practise different techniques of programming in ruby language.
-For practise, I will focus on algorithms implementation itself, rather than using built-in ruby features.
-Not every subdirectory contain scripts with minimum usage of ruby API.
+
+**Algorithms** section covers a lot of text-processing related transformations. These are cruciual basics for everyone who wants to understand Natural Language Processing engines.
+
+**Performance**' section is nothing more than 'cheatsheet' for understanding ruby better. Have you ever wonder if is it possible to code something in a more performant and maintainable way? Yes, me too.
+
+I decide to focus on algorithms implementation itself, rather than using built-in ruby features. Someone may wonder, why am I doing such a thing? Well, I suppose It is not so hard to find almost complete solution within documentation.
 
 ### Algorithms
 - Bubble sort
