@@ -23,6 +23,8 @@ I decide to focus on algorithms implementation itself, rather than using built-i
 [wiki](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 - Word Cosine Similarity
 [wiki](https://en.wikipedia.org/wiki/Cosine_similarity)
+- Jaccard coefficient/distance
+[wiki](https://en.wikipedia.org/wiki/Jaccard_index)
 
 ### Data Structures
 - Linked List (with basic actions)
