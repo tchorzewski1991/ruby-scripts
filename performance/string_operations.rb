@@ -1,5 +1,15 @@
 require 'benchmark/ips'
 
+# The task is to remove first character from the string, possibly with most
+# elegant solution. Rather than return deleted character, what we want
+# to do is to returns new string.
+
+# Task seems to be really simple, but definitely there is a lot of ways
+# to do that. Are there any special differences between those?  Apart from
+# little 'overdesign' to that pretty straight forward task, what we need to
+# be considered is the amount of possibilities which ruby programming
+# language offers.
+
 String.class_eval do
   def ease
     self[1..-1]
