@@ -6,7 +6,7 @@ require 'benchmark/ips'
 
 # Task seems to be really simple, but definitely there is a lot of ways
 # to do that. Are there any special differences between those?  Apart from
-# little 'overdesign' to that pretty straight forward task, what we need to
+# little 'overdesign' to that pretty straight forward task, what need to
 # be considered is the amount of possibilities which ruby programming
 # language offers.
 
