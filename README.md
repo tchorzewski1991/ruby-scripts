@@ -32,6 +32,7 @@ I decide to focus on algorithms implementation itself, rather than using built-i
 
 ### Performance
 - Array#join vs other less common approaches
+- String-operations: Multiple choices for removing first char
 
 ### Others
 - Occurrence counting (different approaches)
