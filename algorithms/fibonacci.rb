@@ -1,63 +1,118 @@
 require 'benchmark/ips'
 
-class Fibonacci
-  class << self
-    def recursive_fib(n)
+module Fibonacci
+  module Recursive
+    extend self
+
+    def compute(n)
       return 0 if n == 0
       return 1 if n == 1
-      recursive_fib(n - 2) + recursive_fib(n - 1)
+      compute(n - 2) + compute(n - 1)
     end
+  end
 
-    def memoized_fib(n)
+  module Memoized
+    extend self
+
+    def compute(n)
       @memo ||= { 0 => 0, 1 => 1 }
-      @memo[n] || @memo[n] = memoized_fib(n - 2) + memoized_fib(n - 1)
+      @memo.fetch(n) { @memo[n] = compute(n - 2) + compute(n - 1) }
     end
+  end
 
-    def iterative_fib(n)
+  module Iterative
+    extend self
+
+    def compute(n)
       i = 2
-      memo = [0, 1]
+      numbers = [0, 1]
+
       while i <= n
-        memo[i] = memo[i - 2] + memo[i - 1]
+        numbers[i] = numbers[i - 2] + numbers[i - 1]
         i += 1
       end
-      memo.last
+
+      numbers.last
+    end
+  end
+
+  module Folding
+    module Mutation
+      extend self
+
+      # upto - inject variant
+      def compute(n)
+        2.upto(n).inject([0, 1]) do |memo, i|
+          memo[i] = memo[i - 2] + memo[i - 1]
+          memo
+        end.last
+      end
     end
 
-    def folding_fib(n)
-      2.upto(n).inject([0, 1]) do |memo, i|
-        memo[i] = memo[-2] + memo[-1]
-        memo
-      end.last
-    end
+    module Reassignment
+      extend self
 
-    def hash_fib(n)
-      fib = Hash.new { |h, n| h[n] = fib[n - 2] + fib[n - 1] }
+      # upto - inject variant
+      def compute(n)
+        2.upto(n).inject([0, 1]) do |memo, _|
+          memo << memo[-2] + memo[-1]
+          memo
+        end.last
+      end
+    end
+  end
+
+  module Hash
+    extend self
+
+    def compute(n)
+      fib = ::Hash.new { |hash, key| hash[key] = fib[key - 2] + fib[key - 1] }
       fib.update(0 => 0, 1 => 1)
       fib[n]
     end
   end
 end
 
-
 Benchmark.ips do |x|
-  x.report('pure - recursive    ') { Fibonacci.recursive_fib(40) }
-  x.report('memoized - recursive') { Fibonacci.memoized_fib(40) }
-  x.report('pure - iterative    ') { Fibonacci.iterative_fib(40) }
-  x.report('fold - iterative    ') { Fibonacci.folding_fib(40) }
-  x.report('hash - memoized     ') { Fibonacci.hash_fib(40) }
+  x.report 'Recursive' do
+    Fibonacci::Recursive.compute(40)
+  end
+
+  x.report 'Memoized' do
+    Fibonacci::Memoized.compute(40)
+  end
+
+  x.report 'Iterative' do
+    Fibonacci::Iterative.compute(40)
+  end
+
+  x.report 'Folding - Mutation' do
+    Fibonacci::Folding::Mutation.compute(40)
+  end
+
+  x.report 'Folding - Reassignment' do
+    Fibonacci::Folding::Reassignment.compute(40)
+  end
+
+  x.report 'Hash' do
+    Fibonacci::Hash.compute(40)
+  end
+
   x.compare!
 end
-
-# Calculating -------------------------------------
-# pure - recursive          0.045  (± 0.0%) i/s -      1.000  in  22.386674s
-# memoized - recursive      4.199M (± 8.8%) i/s -     20.828M in   5.002035s
-# pure - iterative        203.194k (±10.4%) i/s -      1.006M in   5.009933s
-# fold - iterative        134.339k (±10.6%) i/s -    671.577k in   5.062760s
-# hash - memoized          56.952k (± 9.4%) i/s -    283.095k in   5.015595s
-
+#
+# Calculating --------------------------------------------------------------
+# Recursive               0.052  (± 0.0%)   i/s -       1.000  in  19.323509s
+# Memoized                3.825M (± 7.5%)   i/s -     19.056M in   5.012021s
+# Iterative               224.563k (± 4.8%) i/s -      1.136M in   5.071475s
+# Folding - Mutation      138.958k (± 4.4%) i/s -    706.365k in   5.093485s
+# Folding - Reassignment  148.923k (± 5.1%) i/s -    743.380k in   5.005356s
+# Hash                    64.986k (± 5.6%)  i/s -    327.288k in   5.052694s
+#
 # Comparison:
-# memoized - recursive:  4198818.0 i/s
-# pure - iterative    :   203193.9 i/s - 20.66x  slower
-# fold - iterative    :   134339.1 i/s - 31.26x  slower
-# hash - memoized     :    56951.7 i/s - 63.65x  slower
-# pure - recursive    :        0.0 i/s - 93997569.32x  slower
+# Memoized:                 3825329.6 i/s
+# Iterative:                 224563.2 i/s - 17.03x  slower
+# Folding - Reassignment:    148922.7 i/s - 25.69x  slower
+# Folding - Mutation:        138958.4 i/s - 27.53x  slower
+# Hash:                       64986.2 i/s - 58.86x  slower
+# Recursive:                      0.1 i/s - 73918790.03x  slower
