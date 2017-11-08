@@ -1,3 +1,5 @@
+require 'benchmark/ips'
+
 module Modulo
   extend self
 
@@ -54,3 +56,49 @@ def compute(i, j, opts = {})
     end
   end
 end
+
+Benchmark.ips do |x|
+  p 'Small number of computations'
+
+  x.report 'Modulo.compute' do
+    Modulo.compute(2, 8)
+  end
+
+  x.report 'Standard approach' do
+    compute(2, 8)
+  end
+
+  x.compare!
+end
+
+Benchmark.ips do |x|
+  p 'Large number of computations'
+
+  x.report 'Modulo.compute' do
+    Modulo.compute(7, 100)
+  end
+
+  x.report 'Standard approach' do
+    compute(7, 100)
+  end
+
+  x.compare!
+end
+
+# "Small number of computations"
+# Calculating -------------------------------------
+#    Modulo.compute       164.979k (± 6.6%) i/s -    821.394k in   5.001877s
+#    Standard approach     15.333k (± 5.8%) i/s -     77.539k in   5.075148s
+#
+# Comparison:
+#    Modulo.compute:     164979.3 i/s
+#    Standard approach:   15332.9 i/s - 10.76x  slower
+#
+# "Large number of computations"
+# Calculating -------------------------------------
+#    Modulo.compute        17.550k (± 6.2%) i/s -     88.485k in   5.062319s
+#    Standard approach      2.380k (± 5.8%) i/s -     12.005k in   5.062469s
+#
+# Comparison:
+#    Modulo.compute:       17549.6 i/s
+#    Standard approach:     2379.6 i/s - 7.37x  slower
