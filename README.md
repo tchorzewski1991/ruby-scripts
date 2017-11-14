@@ -34,6 +34,11 @@ I decide to focus on algorithms implementation itself, rather than using built-i
 - Array#join vs other less common approaches
 - String-operations: Multiple choices for removing first char
 
+### Enumerations
+- Modulo - first n-th, n modulo m equantions
+- Interpose - clojure inspired interposing fn()
+- PrimeNumbers - self explanatory, but with small twist
+
 ### Others
 - Occurrence counting (different approaches)
 - Considerations on ruby singleton classes
