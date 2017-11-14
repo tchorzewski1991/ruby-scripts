@@ -3,7 +3,7 @@ require 'benchmark/ips'
 module Modulo
   extend self
 
-  # Modulo#compute creates enumerator that allows you for computation of
+  # Modulo#compute creates enumeration that allows you for computation of
   # first j-th numbers where each of number satisfies modulo equation
   # operation for given i number.
 
