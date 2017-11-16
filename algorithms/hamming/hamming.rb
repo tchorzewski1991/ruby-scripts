@@ -1,18 +1,15 @@
-class Hamming
-  def initialize(source, target, **opts)
-    @source = source
-    @target = target
-  end
+module Hamming
+  extend self
 
-  def distance
-    j, k = @source.length, @target.length
+  def distance(origin, target)
+    j, k = origin.length, target.length
 
     return if j != k
 
     i, diff = 0, 0
 
     while i < j
-      diff += 1 if @target[i] != @source[i]
+      diff += 1 if target[i] != origin[i]
       i += 1
     end
 
