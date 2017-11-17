@@ -12,7 +12,7 @@ RSpec.describe Jaro do
       }
     }
 
-    it 'expects to return correct similarity value' do
+    it 'returns correct similarity value' do
       _source = with_transposition[:source]
       _target = with_transposition[:target]
       _similarity = with_transposition[:similarity]
@@ -31,7 +31,7 @@ RSpec.describe Jaro do
       }
     }
 
-    it 'expects to return correct similarity value' do
+    it 'returns correct similarity value' do
       _source = without_transposition[:source]
       _target = without_transposition[:target]
       _similarity = without_transposition[:similarity]
@@ -47,7 +47,7 @@ RSpec.describe Jaro do
       }
     }
 
-    it 'expects to return correct similarity value' do
+    it 'returns correct similarity value' do
       _source = without_transposition[:source]
       _target = without_transposition[:target]
       _similarity = without_transposition[:similarity]
