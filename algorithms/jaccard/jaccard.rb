@@ -10,6 +10,18 @@ module Jaccard
     # Jaccard index or the Jaccard similarity coefficient. Algorithm refers
     # to a statistic used for comparing the similarity and diversity of
     # sample collections.
+    #
+    # Example: Basic usage
+    #   Returns value of similarity between origin and target
+    #
+    #   Jaccard::Words.coefficient 'apple', 'applet'
+    #   => 0.8
+    #
+    # Example: Basic usage
+    #   Returns value of distance between origin and target
+    #
+    #   Jaccard::Words.distance 'apple', 'applet'
+    #   => 0.2
 
     def coefficient(origin, target)
       # Variables origin_chars, and target_chars refer to temporary containers
