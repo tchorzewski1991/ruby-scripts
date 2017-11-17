@@ -11,34 +11,35 @@ module Jaccard
     # to a statistic used for comparing the similarity and diversity of
     # sample collections.
 
-    def coefficient(s, t)
-      # Variables s_chars, and t_chars refer to temporary containers for
-      # unique characters from both words. Iteration occures until both
+    def coefficient(origin, target)
+      # Variables origin_chars, and target_chars refer to temporary containers
+      # for unique characters from both words. Iteration occures until both
       # strings will be reproduced in form of arrays. When iteration is
       # finished only thing to do is to produce intersection and union
       # basing on both of collections.
-      s_chars = []
-      t_chars = []
+      origin_chars = []
+      target_chars = []
 
       i = 0
-      while true
-        t_char = t[i] and t_chars[i] = t_char.ord
-        s_char = s[i] and s_chars[i] = s_char.ord
 
-        t_char || s_char || break
+      while true
+        target_char = target[i] and target_chars[i] = target_char.ord
+        origin_char = origin[i] and origin_chars[i] = origin_char.ord
+
+        target_char || origin_char || break
 
         i += 1
       end
 
-      intersection = t_chars & s_chars
-      union = t_chars | s_chars
+      intersection = target_chars & origin_chars
+      union        = target_chars | origin_chars
 
 
       (intersection.length / union.length.to_f).round(5)
     end
 
-    def distance(s, t)
-      (1 - coefficient(s, t)).round(5)
+    def distance(origin, target)
+      (1 - coefficient(origin, target)).round(5)
     end
   end
 end
