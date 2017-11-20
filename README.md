@@ -12,7 +12,7 @@ on this repo could be easily (or not) replaced with some other, more common and 
 Someone may wonder, why am I doing such a thing? Well, it is not so hard to find almost complete solution within
 documentation. There is no more reason other than just one - I just love coding in Ruby.
 
-**Performance** section is nothing more than 'cheatsheet' for understanding ruby better. Have you ever wonder if is it possible to code something in a more performant and maintainable way? Yes, me too.
+**Performance** section is nothing more than playing around complex ruby syntax. With such an elegant language, there needs to be lot of solutions to particular problem. Have you ever wonder if is it possible to code something in a more performant and maintainable way?
 
 ### Algorithms
 - Bubble sort
