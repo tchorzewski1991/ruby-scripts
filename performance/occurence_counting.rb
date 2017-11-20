@@ -29,6 +29,18 @@ def variant_6(array)
   Hash[array.group_by(&:itself).map { |key, value| [key, value.size] }]
 end
 
+def variant_7(array)
+  result = Hash.new(0)
+  i = 0
+
+  while e = array[i]
+    result[e] += 1
+    i += 1
+  end
+
+  result
+end
+
 Benchmark.ips do |x|
   array = %w(a a b c d e r e s a s e)
 
