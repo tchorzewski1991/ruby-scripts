@@ -48,6 +48,3 @@ documentation. There is no more reason other than just one - I just love coding 
 ### Data Structures
 - Linked List (with basic actions)
 - Circular List (with basic actions)
-
-### Others
-- Occurrence counting (different approaches)
