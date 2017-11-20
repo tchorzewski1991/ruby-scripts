@@ -1,5 +1,10 @@
 require 'benchmark/ips'
 
+# The task is to count occurence of each unique element of an array and to
+# return hash with corresponding results. I took into account these attempts
+# are definitely not all possible attempts. Please feel free to contribute
+# and benchmark your own solution.
+
 def variant_1(array)
   array.uniq.map { |key| [key, array.count(key)] }.to_h
 end
