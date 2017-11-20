@@ -36,6 +36,7 @@ documentation. There is no more reason other than just one - I just love coding 
 ### Performance
 - Array#join vs other less common approaches
 - String-operations: Multiple choices for removing first char
+- Counting occurrence of array elements
 
 ### Metaprogramming
 - Singleton methods
