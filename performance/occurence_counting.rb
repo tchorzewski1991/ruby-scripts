@@ -50,23 +50,26 @@ Benchmark.ips do |x|
   x.report('variant 4') { variant_4(array) }
   x.report('variant 5') { variant_5(array) }
   x.report('variant 6') { variant_6(array) }
+  x.report('variant 7') { variant_7(array) }
 
   x.compare!
 end
 
 #
 # Calculating -------------------------------------
-#                    1     86.668k (± 6.3%) i/s -    438.932k in   5.085439s
-#                    2    241.159k (± 5.6%) i/s -      1.211M in   5.037488s
-#                    3    215.225k (± 8.2%) i/s -      1.072M in   5.020525s
-#                    4    216.927k (± 6.7%) i/s -      1.090M in   5.049314s
-#                    5    178.323k (± 5.2%) i/s -    891.884k in   5.015653s
-#                    6    132.919k (± 4.7%) i/s -    663.572k in   5.003539s
+#            variant 1     79.005k (± 8.0%) i/s -    394.205k in   5.023874s
+#            variant 2    184.203k (± 6.2%) i/s -    920.610k in   5.017866s
+#            variant 3    161.382k (±10.4%) i/s -    808.911k in   5.076996s
+#            variant 4    170.109k (± 5.9%) i/s -    856.548k in   5.053924s
+#            variant 5    133.756k (± 5.5%) i/s -    668.635k in   5.015324s
+#            variant 6     98.708k (± 7.8%) i/s -    496.269k in   5.063483s
+#            variant 7    203.420k (± 7.1%) i/s -      1.018M in   5.032203s
 #
 # Comparison:
-#                    2:   241159.1 i/s
-#                    4:   216927.4 i/s - same-ish: difference falls within error
-#                    3:   215225.2 i/s - same-ish: difference falls within error
-#                    5:   178322.5 i/s - 1.35x  slower
-#                    6:   132919.2 i/s - 1.81x  slower
-#                    1:    86668.1 i/s - 2.78x  slower
+#            variant 7:   203420.2 i/s
+#            variant 2:   184202.7 i/s - same-ish: difference falls within error
+#            variant 4:   170109.4 i/s - 1.20x  slower
+#            variant 3:   161382.4 i/s - 1.26x  slower
+#            variant 5:   133755.6 i/s - 1.52x  slower
+#            variant 6:    98707.9 i/s - 2.06x  slower
+#            variant 1:    79005.2 i/s - 2.57x  slower
