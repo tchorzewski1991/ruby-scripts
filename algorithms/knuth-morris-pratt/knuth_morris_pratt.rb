@@ -1,11 +1,8 @@
-class KnuthMorrisPratt
-  def initialize(source, target)
-    @s = source
-    @t = target
-  end
+module KnuthMorrisPratt
+  extend self
 
-  def compute
-    k, j = s.length, t.length
+  def compute(origin, target)
+    k, j = origin.length, target.length
 
     # Variable cs (common-subsequence) will refer to the longest
     # common subsequence that has been found
@@ -75,7 +72,4 @@ class KnuthMorrisPratt
 
     cs
   end
-
-  private
-  attr_reader :s, :t
 end
