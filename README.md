@@ -1,9 +1,9 @@
 # ruby-scripts
-The main point of this repo is to practise different techniques and attempts of programming in Ruby language.
-Before I had been started I took into account that not every piece of code in this repo needs to be the best 
+The main point of this repo is to practice different techniques and attempts of programming in Ruby language.
+Before I had been started I took into account that not every piece of code in this repo needs to be the best
 possible solution. Please, feel welcome to open issues and comment on that :)
 
-**Algorithms** section covers a lot of text-processing related transformations. These are cruciual basics for
+**Algorithms** section covers a lot of text-processing related transformations, but not only. These are definitely crucial basics for
 everyone who wants to understand Natural Language Processing engines.
 
 Quick clarification note for 'Algorithms' section - most of the time I decided to focus on algorithms implementation
@@ -41,8 +41,8 @@ documentation. There is no more reason other than just one - I just love coding 
 - Singleton methods
 
 ### Enumerations
-- Modulo - first n-th, n modulo m equantions
-- Interpose - clojure inspired interposing fn()
+- Modulo - first n-th, n modulo m equations
+- Interpose - Clojure inspired interposing fn()
 - PrimeNumbers - self explanatory, but with small twist
 
 ### Data Structures
