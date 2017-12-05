@@ -8,10 +8,10 @@ This section covers a lot of text-processing related transformations. These are 
 
 Quick note for the sake of clarification: Most of the time I decided to focus on algorithms implementation
 itself, rather than using built-in Ruby methods and features. (ex. Enumerable module). I suppose that many algorithms implemented on this repo could be easily (or not) replaced with some other, more common and suitable solution.
-Someone may wonder, why am I doing such a thing? There is no more reason other than practise. I just love to explore       Ruby, as well as digging into how something has been implemented.
+Someone may wonder, why am I doing such a thing? There is no more reason other than practise. I just love to explore       Ruby, as well as digging into how something has been, or need to be implemented.
 
 **Performance** -
-This section is focused on playing around complex ruby syntax. With such an elegant language, there needs to be lot of solutions for particular problem. I strongly believe that context of performance matters.
+This section is focused on playing around complex Ruby syntax. With such an elegant language, in most cases there is a        lot of solutions for the particular problem. I strongly believe that context of performance matters.
 
 ### Algorithms
 - Bubble sort
