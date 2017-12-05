@@ -1,18 +1,17 @@
 # ruby-scripts
 The main point of this repo is to practice different techniques and attempts of programming in Ruby language.
 Before I had been started I took into account that not every piece of code in this repo needs to be the best
-possible solution. Please, feel welcome to open issues and comment on that :)
+possible solution for particular problem. Please, feel welcome to open issues and comment on that :)
 
-**Algorithms** section covers a lot of text-processing related transformations, but not only. These are definitely crucial basics for
-everyone who wants to understand Natural Language Processing engines.
+**Algorithms** -
+This section covers a lot of text-processing related transformations. These are definitely crucial basics for everyone who wants to understand Natural Language Processing engines under the hood.
 
-Quick clarification note for 'Algorithms' section - most of the time I decided to focus on algorithms implementation
-itself, rather than using built-in Ruby features. (ex. Enumerable module). I suppose that many algorithms implemented
-on this repo could be easily (or not) replaced with some other, more common and suitable solution to Ruby.
-Someone may wonder, why am I doing such a thing? Well, it is not so hard to find almost complete solution within
-documentation. There is no more reason other than just one - I just love coding in Ruby.
+Quick note for the sake of clarification: Most of the time I decided to focus on algorithms implementation
+itself, rather than using built-in Ruby methods and features. (ex. Enumerable module). I suppose that many algorithms implemented on this repo could be easily (or not) replaced with some other, more common and suitable solution.
+Someone may wonder, why am I doing such a thing? There is no more reason other than practise. I just love to explore       Ruby, as well as digging into how something has been implemented.
 
-**Performance** section is nothing more than playing around complex ruby syntax. With such an elegant language, there needs to be lot of solutions to particular problem. Have you ever wonder if is it possible to code something in a more performant and maintainable way?
+**Performance** -
+This section is focused on playing around complex ruby syntax. With such an elegant language, there needs to be lot of solutions for particular problem. I strongly believe that context of performance matters.
 
 ### Algorithms
 - Bubble sort
@@ -26,7 +25,7 @@ documentation. There is no more reason other than just one - I just love coding 
 - Jaro distance [wiki](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
 - Jaro-Winkler distance
 [wiki](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
-- Knuth-Morris-Pratt string searching
+- Knuth-Morris-Pratt longest common subsequence
 [wiki](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 - Word Cosine Similarity
 [wiki](https://en.wikipedia.org/wiki/Cosine_similarity)
