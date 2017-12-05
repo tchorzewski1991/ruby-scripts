@@ -1,45 +1,43 @@
-class KnuthMorrisPratt
-  def initialize(source, target)
-    @s = source
-    @t = target
-  end
+module KnuthMorrisPratt
+  extend self
 
-  def compute
-    k, j = s.length, t.length
+  def compute(origin, target)
+    k, j = origin.length, target.length
 
-    # Variable cs (common-subsequence) will refer to the longest
-    # common subsequence that has been found
-    cs = nil
+    # Variable common_subsequence refers to the longest common
+    # subsequence which we would like to find in our origin string.
+    common_subsequence = nil
 
-    # Variable m refers to current index position in our source string
-    # that will be searched. It is position where prospective match
-    # for our target begins
+    # Variable m refers to index position in our source string.
+    # It is the position where prospective match for our target string
+    # begins.
     m = 0
 
     while m < k
-      # For performance boost we can skip iteration for position
-      # within the source which does not match potential begin of
-      # our target string
-      next(m += 1) if s[m] != t[0]
+      # For performance boost we can skip iterating through positions
+      # where the origin string does not match potential begin of
+      # our target string.
+      next(m += 1) if origin[m] != target[0]
 
-      # Variable temp_cs refers to temporary common subsequence
-      # matched within each provided iteration
-      temp_cs = ''
+      # Variable temporary_subsequence refers to string (common
+      # subsequence) matched within current iteration
+      temporary_subsequence = ''
 
-      # Variable i refers to current position in our target string
+      # Variable i refers to position in our target string
       # whom common subsequence we would like to find
       i = 0
 
       while i <= j
-        t_char = t[i]
+        target_char = target[i]
 
         # Expanding/Looking for common subsequence occure until the same
-        # position within source and target are different. When different
-        # characters will be encountered, 'else' branch of  the conditional
-        # expression is executed, and position relative to the source string
-        # is updated with value equals to length of current 'matches'.
-        if s[m + i] == t_char
-          temp_cs << t_char
+        # position within origin and target strings are different. When
+        # different characters will be encountered, 'else' branch of the
+        # conditional statement is executed, and position relative to the
+        # origin string is updated with value equals to length of current
+        # 'matches'.
+        if origin[m + i] == target_char
+          temporary_subsequence << target_char
           i += 1
         else
           m += i
@@ -57,14 +55,17 @@ class KnuthMorrisPratt
           found, x = 0, 1
 
           while x < i
-            break(found = x) if temp_cs[x] == t[0]
+            break(found = x) if temporary_subsequence[x] == target[0]
             x += 1
           end
 
-          cs ||= temp_cs
-          cs &&= temp_cs if temp_cs.length > cs.length
+          common_subsequence ||= temporary_subsequence
 
-          m -= (temp_cs.length - found) unless found.zero?
+          if temporary_subsequence.length > common_subsequence.length
+            common_subsequence = temporary_subsequence
+          end
+
+          m -= (temporary_subsequence.length - found) unless found.zero?
 
           # Each 'falsy' branch will be stopped, as there is no chance for
           # finding more matches within current iteration
@@ -73,9 +74,6 @@ class KnuthMorrisPratt
       end
     end
 
-    cs
+    common_subsequence
   end
-
-  private
-  attr_reader :s, :t
 end
