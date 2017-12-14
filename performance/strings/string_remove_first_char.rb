@@ -12,7 +12,7 @@ require 'benchmark/ips'
 
 String.class_eval do
   def ease
-    self[1..-1]
+    String(self[1..-1])
   end
 end
 
