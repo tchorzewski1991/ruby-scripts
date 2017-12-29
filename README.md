@@ -2,8 +2,14 @@
 The main purpose of this repo is to enjoy the art of programming and to practice more algorithmic approach for some more or less common problems.
 
 Quick note for the sake of clarification:
-Most of the time I decided to focus on algorithms implementation itself (by hand), rather than using more idiomatic and sophisticated Ruby style. Great example will be skipping Enumerable mixin.
-It's obvious, that many algorithms implemented here could be easily (or not) replaced with some other, more common and suitable solution. I just love to explore Ruby, as well as digging into how something has been, or need to be implemented. Please, feel welcome to open issues and comment on that :)
+Most of the time I decided to focus on algorithms implementation itself (by hand), rather than using more idiomatic and
+sophisticated Ruby style. In some cases there are both implementations, but it is not a rule of thumb. Great example to
+explain my point of view is to skip Enumerable module. There is no doubt that Enumerable module contains extremely useful
+filtering, sorting and transformation related add-ons. There is no doubt either, that conventions adopted by community 
+exists for a reason. Many algorithms implemented here probably could be easily (or not) replaced with some other, more 
+common and suitable solutions.
+I just love to explore Ruby, as well as digging into how something has been, or need to be implemented. 
+Please, feel welcome to open issues and comment on that :)
 
 **Algorithms** -
 This section is mostly focused on covering transformations related to text-processing, but not only. These are definitely crucial basics for everyone who wants to understand Natural Language Processing engines. There are also implementation for several common and uncommon searching and sorting algorithms.
