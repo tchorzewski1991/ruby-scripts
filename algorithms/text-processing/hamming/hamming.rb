@@ -1,18 +1,15 @@
 module Hamming
-  extend self
-
   # Hamming#distance measures the minimum number of substitutions required to
   # change one string into another, or the minimum number of errors that could
   # have transformed one string into the other.
-
+  #
   # Example: Basic usage
-  #   Returns number of different characters from both strings of equal length
+  #   Returns number of different characters from both strings of equal size
   #
   #   Hamming.distance 'karolin', 'kathrin'
   #   => 3
-  #
 
-  def distance(origin, target)
+  def self.distance(origin, target)
     j, k = origin.length, target.length
 
     return if j != k
