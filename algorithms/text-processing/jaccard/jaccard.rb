@@ -1,9 +1,5 @@
 module Jaccard
   module Words
-    extend self
-
-    DEFAULT_ROUND = 5
-
     # The Jaccard coefficient measures similarity between finite sample sets,
     # and is defined as the size of the intersection divided by the size of
     # the union of the sample sets. Algorithm itself is also known as the
@@ -23,7 +19,7 @@ module Jaccard
     #   Jaccard::Words.distance 'apple', 'applet'
     #   => 0.2
 
-    def coefficient(origin, target)
+    def self.coefficient(origin, target)
       # Variables origin_chars, and target_chars refer to temporary containers
       # for unique characters from both words. Iteration occures until both
       # strings will be reproduced in form of arrays. When iteration is
@@ -50,7 +46,7 @@ module Jaccard
       (intersection.length / union.length.to_f).round(5)
     end
 
-    def distance(origin, target)
+    def self.distance(origin, target)
       (1 - coefficient(origin, target)).round(5)
     end
   end
