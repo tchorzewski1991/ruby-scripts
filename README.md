@@ -1,5 +1,6 @@
-# ruby-scripts
-This repository contains Ruby implementation of various algorithms.
+# What is this?
+
+This repository contains Ruby implementation of various algorithms and data structures.
 
 **Quick note for the sake of clarification:**
 
@@ -37,7 +38,9 @@ This section is mostly focused on revealing and solidify understanding of differ
 the time I decided to stay focused on patterns described by GOF in their great publication - 'Design Patterns: Elements
 of Reusable Object-Oriented Software' (1994).
 
-### Algorithms
+
+
+#### Algorithms
 - Text-Processing
   - Hamming distance
   [wiki](https://en.wikipedia.org/wiki/Hamming_distance)
@@ -72,19 +75,26 @@ of Reusable Object-Oriented Software' (1994).
     [wiki](https://en.wikipedia.org/wiki/Luhn_algorithm)
 
 
-### Performance
+#### Performance
   - Arrays
     - Array#join vs other less common approaches
     - Counting occurrence of array elements
   - Strings
     - Multiple choices for removing first char
 
-### Metaprogramming
+#### Metaprogramming
 - Different ways to define singleton method
 
-### Patterns
+#### Patterns
   - Singleton (under development)
 
-### Data Structures
+#### Data Structures
 - Linked List (with basic actions)
 - Circular List (with basic actions)
+
+
+## License
+All Solutions licensed under MIT License. See LICENSE.txt for further details.
+
+## Copyright
+Copyright (c) 2018 [tchorzewski1991](https://github.com/tchorzewski1991).
