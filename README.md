@@ -1,27 +1,41 @@
 # ruby-scripts
-The main purpose of this repo is to enjoy the art of programming and to practice more algorithmic approach for some more or less common problems.
+This repository contains Ruby implementation of various algorithms.
 
-Quick note for the sake of clarification:
-Most of the time I decided to focus on algorithms implementation itself (by hand), rather than using more idiomatic and
-sophisticated Ruby style. In some cases there are both implementations, but it is not a rule of thumb. Great example to
-explain my point of view is to skip Enumerable module. There is no doubt that Enumerable module contains extremely useful
-filtering, sorting and transformation related add-ons. There is no doubt either, that conventions adopted by community 
-exists for a reason. Many algorithms implemented here probably could be easily (or not) replaced with some other, more 
-common and suitable solutions.
-I just love to explore Ruby, as well as digging into how something has been, or need to be implemented. 
+**Quick note for the sake of clarification:**
+
+This code is designed more for practise algorithmic approach, rather than being idiomatic Ruby. Mayby this is why
+I decide to not make it a library. You problably want to use a different Ruby library, if you are interested in
+a library more focused on **commercial** use. There are several ones. The `algorithms` gem makes use of C-extensions
+for significant speed improvement. I don't say that algorithms cannot be used in production, but It's worth to know
+that Ruby interpreter could adds an overhead. It may impact on overall performance of your application.
+
+Most of the time I decided to focus on algorithms implementation itself (by hand), rather than using ready solutions.
+In some cases there are both implementations, but it is not a rule of thumb. Great example is to restrict usage of
+Enumerable module. There is no doubt that Enumerable module contains extremely useful filtering, sorting and transformation 
+related methods. There is no doubt either, that conventions adopted by community exists for a reason.
+
+However, I strongly believe that digging into how something has been, or needs to be implemented is a great opportunity
+to develop programming skills.
+
 Please, feel welcome to open issues and comment on that :)
 
 **Algorithms** -
-This section is mostly focused on covering transformations related to text-processing, but not only. These are definitely crucial basics for everyone who wants to understand Natural Language Processing engines. There are also implementation for several common and uncommon searching and sorting algorithms.
+This section is mostly focused on covering transformations related to text-processing, but not only. These are definitely
+crucial basics for everyone who wants to understand Natural Language Processing engines. There are also implementation for
+several common and uncommon searching and sorting algorithms.
 
 **Performance** -
-This section is mostly focused on playing with complex Ruby syntax. With such an expanded programming language, in most cases there is a lot of solutions for the particular problem. I strongly believe that context of performance matters.
+This section is mostly focused on playing with complex Ruby syntax. In most cases there is a lot of solutions for the
+particular problem. I strongly believe that context of performance could vary and matters.
 
 **Metaprogramming** -
-This section is mostly focused on building simple code snippets for solid understanding of different meta programming techniques.
+This section is mostly focused on building simple code snippets for solid understanding of different metaprogramming 
+techniques.
 
 **Patterns** -
-This section is mostly focused on revealing and solidify understanding of different patterns in programming. Most of the time I decided to stay focused on patterns described by GOF in their great publication - 'Design Patterns: Elements of Reusable Object-Oriented Software' (1994).
+This section is mostly focused on revealing and solidify understanding of different patterns in programming. Most of
+the time I decided to stay focused on patterns described by GOF in their great publication - 'Design Patterns: Elements
+of Reusable Object-Oriented Software' (1994).
 
 ### Algorithms
 - Text-Processing
