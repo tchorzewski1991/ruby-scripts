@@ -66,7 +66,7 @@ end
 #   end
 #
 #   x.report 'PrimeNumbers' do
-#     PrimeNumbers.compute(n).first(n)
+#     PrimeNumbers.first(n)
 #   end
 #
 #   x.compare!
@@ -80,7 +80,7 @@ end
 #   end
 #
 #   x.report 'PrimeNumbers' do
-#     PrimeNumbers.compute(n).first(n)
+#     PrimeNumbers.first(n)
 #   end
 #
 #   x.compare!
