@@ -14,5 +14,7 @@
 # It's worth to point out that both cases have some pros and cons,
 # so there is no perfect way, to define singleton.
 
+require_relative './implementations/eager_instantiation'
+
 module Singleton
 end
