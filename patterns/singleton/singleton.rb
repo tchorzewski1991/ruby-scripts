@@ -15,6 +15,7 @@
 # so there is no perfect way, to define singleton.
 
 require_relative './implementations/eager_instantiation'
+require_relative './implementations/lazy_instantiation'
 
 module Singleton
 end
