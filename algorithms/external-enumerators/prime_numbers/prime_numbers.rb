@@ -2,8 +2,6 @@ require 'benchmark/ips'
 require 'prime'
 
 module PrimeNumbers
-  extend self
-
   # PrimeNumbers#compute creates enumerator that allows you for computation of
   # first n-th prime numbers. Returning enumerator instead of enumeration is
   # just an implementation detail and could be easily expanded with implicit
@@ -26,26 +24,21 @@ module PrimeNumbers
   #   end
   #   => [3, 5]
 
-  def compute(n)
+  def self.first(n)
     enum = Enumerator.new do |yielder|
-      yielder << 2
-      primes = [2]
-      found = 1
+      primes = []
+      found = 0
+      candidate = 2
 
-      candidate = 3
-
-      while true
-        i = 0
+      while found <= n
+        boundary = Math.sqrt(candidate)
 
         divisable = false
 
-        boundary = Math.sqrt(candidate)
+        i = 0
 
-        while true
-          prime = primes[i]
-
+        while prime = primes[i] and prime <= boundary
           break(divisable = true) if candidate % prime == 0
-          break if prime >= boundary
           i += 1
         end
 
@@ -55,13 +48,11 @@ module PrimeNumbers
           found += 1
         end
 
-        break if found == n
-
         candidate += 1
       end
     end
 
-    block_given? && yield(enum) || enum
+    block_given? ? yield(enum) : enum.first(n)
   end
 end
 
