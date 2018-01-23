@@ -16,6 +16,7 @@
 
 require_relative './implementations/eager_instantiation'
 require_relative './implementations/lazy_instantiation'
+require_relative './implementations/testable_class'
 
 module Singleton
 end
