@@ -22,7 +22,7 @@ Please, feel welcome to open issues and comment on that :)
 
 **Algorithms** -
 This section is mostly focused on covering transformations related to text-processing, but not only. These are definitely
-crucial basics for everyone who wants to understand Natural Language Processing engines. There are also implementation for
+some basics for everyone who wants to understand Natural Language Processing engines. There are also implementation for
 several common and uncommon searching and sorting algorithms.
 
 **Performance** -
@@ -83,14 +83,14 @@ of Reusable Object-Oriented Software' (1994).
     - Multiple choices for removing first char
 
 #### Metaprogramming
-- Different ways to define singleton method
+  - Different ways to define singleton method
 
 #### Patterns
-  - Singleton (under development)
+  - Singleton
 
 #### Data Structures
-- Linked List (with basic actions)
-- Circular List (with basic actions)
+  - Linked List (with basic actions)
+  - Circular List (with basic actions)
 
 
 ## License
