@@ -4,34 +4,26 @@ This repository contains Ruby implementation of various algorithms and data stru
 
 **Quick note for the sake of clarification:**
 
-This code is designed more for practise algorithmic approach, rather than being idiomatic Ruby. Mayby this is why
-I decide to not make it a library. You problably want to use a different Ruby library, if you are interested in
-a library more focused on **commercial** use. There are several ones. The `algorithms` gem makes use of C-extensions
-for significant speed improvement. I don't say that algorithms cannot be used in production, but It's worth to know
-that Ruby interpreter could adds an overhead. It may impact on overall performance of your application.
+This code was designed more for learning purposes. Some of the proposed solutions might not fall into 100% idiomatic Ruby.
+You probably want to use a different Ruby library, if you are interested in code crafted directly for **production** use.
+There are several ones. The `algorithms` gem makes use of C-extensions for significant speed improvement.
+I won't say my code doesn't work and cannot be used commercially, but it's always worth to know about possible alternatives :)
 
-Most of the time I decided to focus on algorithms implementation itself (by hand), rather than using ready solutions.
-In some cases there are both implementations, but it is not a rule of thumb. Great example is to restrict usage of
-Enumerable module. There is no doubt that Enumerable module contains extremely useful filtering, sorting and transformation 
-related methods. There is no doubt either, that conventions adopted by community exists for a reason.
-
-However, I strongly believe that digging into how something has been, or needs to be implemented is a great opportunity
-to develop programming skills.
+Most of the time I decided to focus on algorithms implementation itself, rather than using ready solutions.
+In some cases, there are both implementations, but it is not a rule of thumb. I strongly believe that digging into how
+something has been, or needs to be implemented is a great opportunity to develop programming skills.
 
 Please, feel welcome to open issues and comment on that :)
 
 **Algorithms** -
-This section is mostly focused on covering transformations related to text-processing, but not only. These are definitely
-some basics for everyone who wants to understand Natural Language Processing engines. There are also implementation for
-several common and uncommon searching and sorting algorithms.
+This section is mostly focused on covering transformations related to text-processing.
+You can find here some basics of natural language processing as well as several common and uncommon searching and sorting algorithms.
 
 **Performance** -
-This section is mostly focused on playing with complex Ruby syntax. In most cases there is a lot of solutions for the
-particular problem. I strongly believe that context of performance could vary and matters.
+This section is focused mostly on writing performant Ruby code. In most cases, we are faced with several possible solutions to a given problem. Premature optimization is the root of all evil, but I strongly believe that the context of performance matters - especially in case of such expressive and flexible language as Ruby.
 
 **Metaprogramming** -
-This section is mostly focused on building simple code snippets for solid understanding of different metaprogramming 
-techniques.
+This section is focused mostly on a deep understanding of different metaprogramming techniques.
 
 **Patterns** -
 This section is mostly focused on revealing and solidify understanding of different patterns in programming. Most of
